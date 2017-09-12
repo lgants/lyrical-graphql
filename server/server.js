@@ -9,7 +9,7 @@ const keys = require('./config/keys');
 const app = express();
 
 // Replace with your mongoLab URI
-const MONGO_URI = keys.MongoURL;
+const MONGO_URI = keys.mongoURI;
 if (!MONGO_URI) {
   throw new Error('You must provide a MongoLab URI');
 }
