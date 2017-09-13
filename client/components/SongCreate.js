@@ -51,5 +51,5 @@ const mutation = gql`
   }
 `;
 
-// wrapping the component with graphl like this enables passing query variables (via the mutate object placed on props) to the graphql query/mutation
+// wrapping the component with graphl enables passing query variables (via the mutate object placed on props in the onSubmit handler) to the graphql query/mutation
 export default graphql(mutation)(SongCreate);
