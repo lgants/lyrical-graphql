@@ -11,7 +11,12 @@ import SongList from './components/SongList';
 import SongCreate from './components/SongCreate';
 import SongDetail from './components/SongDetail';
 
-const client = new ApolloClient({});
+// const client = new ApolloClient({});
+
+// takes every piece of data fetched by apollo on the backend and uses the id field to identify that piece of data to help React stay in sync with Apollo (especially useful for updates)
+const client = new ApolloClient({
+  dataIdFromObject: obj => obj.id
+});
 
 const Root = () => {
   return (
