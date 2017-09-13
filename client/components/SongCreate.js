@@ -14,8 +14,14 @@ class SongCreate extends Component {
   onSubmit(event) {
     event.preventDefault();
 
+    // NOTE could pass variables to refetchQueries with: refetchQueries: [{ query: query, variables: { ... } }]
+    // this mutation returns a promise
+    // could use catch to show errors (if any exist)
+    // NOTE needed to use refetchQueries as opposed the this.props.data.refetch since the query is not associated with this component (it's on the list component)
     this.props.mutate({
-      variables: { title: this.state.title },
+      variables: {
+        title: this.state.title
+      },
       refetchQueries: [{ query }]
     }).then(() => hashHistory.push('/'));
   }
@@ -45,4 +51,5 @@ const mutation = gql`
   }
 `;
 
+// wrapping the component with graphl like this enables passing query variables (via the mutate object placed on props) to the graphql query/mutation
 export default graphql(mutation)(SongCreate);
